@@ -64,7 +64,7 @@ $jenisProduk = $produk->pesanan();
                             <form action="pesanan_controller.php" method="post">
                                 <a href="index.php?url=pesanan_detail&id=<?=$row['id'] ?>" class="btn btn-info btn-sm">Detail</a>
                                 <a href="index.php?url=pesanan_form&edit=<?= $row['id'] ?>" class="btn btn-warning btn-sm">Ubah</a>
-                                <a href="" class="btn btn-danger btn-sm">Hapus</a>
+                                <button  class="btn btn-danger btn-sm" name="proses" value="hapus" onclick="return confirm('Anda yakin untuk hapus?')" >Hapus</button>
                                 <input type="hidden" name="idx" value="<?= $row['id'] ?>">
                             </form>
                             </td>

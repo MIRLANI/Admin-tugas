@@ -34,11 +34,19 @@ class Pesanan
         $statement->execute($data);
     }
 
-    public function ubah($id)
+    public function ubah($data)
     {
         $koneksi = getConection();
         $sql = "UPDATE pesanan SET tanggal=?, total=?, pelanggan_id=? WHERE id=?";
         $ps = $koneksi->prepare($sql);
-        $ps->execute($id);
+        $ps->execute($data);
+    }
+
+    public function hapus($id)
+    {
+       $koneksi = getConection();
+       $sql = "DELETE FROM pesanan WHERE id=?";
+       $ps = $koneksi->prepare($sql);
+       $ps->execute([$id]);
     }
 }
