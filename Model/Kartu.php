@@ -33,8 +33,20 @@ class Kartu{
         $statement->execute($data);
     }
 
-    public function ubah(){
+    public function ubah($data)
+    {
+        $koneksi = getConection();
+        $sql = "UPDATE kartu SET kode=?, nama=?, diskon=?, iuran=? WHERE id=?";
+        $ps = $koneksi->prepare($sql);
+        $ps->execute($data);
+    }
 
+    public function hapus($id)
+    {
+        $koneksi = getConection();
+        $sql = "DELETE FROM kartu WHERE id=?";
+        $ps = $koneksi->prepare($sql);
+        $ps->execute([$id]);
     }
 
 }
