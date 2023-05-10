@@ -4,6 +4,8 @@
 require_once __DIR__ . "/koneksi.php" ;
 require_once __DIR__ . "/Model/Pelanggan.php" ;
 
+error_reporting(0);
+
 // step pertama yaitu menangkap reques form
 $kode = $_POST["kode"];
 $nama = $_POST["nama"];
@@ -31,6 +33,8 @@ switch($tombol){
     case "ubah": 
         $data[] = $_POST["idx"];
         $model->ubah($data); break;
+    case "hapus":
+        unset($data);$model->hapus($_POST["idx"]); break;
     default:
    header("Location:index.php?url=pelanggan");
     break;

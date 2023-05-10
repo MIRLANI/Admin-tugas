@@ -32,8 +32,20 @@ class Pelanggan{
         $statement->execute($data);
     }
 
-    public function ubah(){
+    public function ubah($data)
+    {
+        $koneksi = getConection();
+        $sql = "UPDATE pelanggan SET kode=?, nama=?, jk=?, tmp_lahir=?, tgl_lahir=?, email=?, kartu_id=?  WHERE id=?";
+        $ps = $koneksi->prepare($sql);
+        $ps->execute($data);
+    }
 
+    public function hapus($id)
+    {
+       $koneksi = getConection();
+       $sql = "DELETE FROM pelanggan WHERE id=?";
+       $ps = $koneksi->prepare($sql);
+       $ps->execute([$id]);
     }
 }
 
