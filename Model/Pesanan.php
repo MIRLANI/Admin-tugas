@@ -1,8 +1,9 @@
-<?php 
+<?php
 
 
 
-class Pesanan{
+class Pesanan
+{
     public function pesanan()
     {
         $koneksi = getConection();
@@ -33,13 +34,11 @@ class Pesanan{
         $statement->execute($data);
     }
 
-    public function ubah(){
-
+    public function ubah($id)
+    {
+        $koneksi = getConection();
+        $sql = "UPDATE pesanan SET tanggal=?, total=?, pelanggan_id=? WHERE id=?";
+        $ps = $koneksi->prepare($sql);
+        $ps->execute($id);
     }
-
 }
-
-
-
-
-?>
