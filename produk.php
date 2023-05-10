@@ -72,11 +72,10 @@ $dataProduk = $produk->dataProduk();
                         <td><?= $row["min_stok"] ?> </td>
                         <td><?= $row["jenis_produk_id"] ?> </td>
                         <td>
-                            <form action="produk_controller.php" method="post">
+                            <form action="produk_hapus.php" method="post">
                                 <a href="index.php?url=produk_detail&id=<?=$row['id'] ?>" class="btn btn-info btn-sm">Detail</a>
-                                <a href="" class="btn btn-warning btn-sm">Ubah</a>
-                                <a href="" class="btn btn-danger btn-sm">Hapus</a>
-                                <input type="hidden" name="idx" value="<?= $row['id'] ?>">
+                                <a href="index.php?url=produk_form&ededit=<?=$row['id'] ?>" class="btn btn-warning btn-sm">Ubah</a>
+                                <button type="submit" name="proses" value="<?=$row["id"] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Anda yakin akan dihapus?')">Hapus</button>
                             </form>
                         </td>
                     </tr>

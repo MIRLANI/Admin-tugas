@@ -1,10 +1,10 @@
 <?php
 
-require_once __DIR__ . "/../koneksi.php" ;
+require_once __DIR__ . "/../koneksi.php";
 
 class Produk
 {
-    
+
 
     public function dataProduk()
     {
@@ -38,7 +38,19 @@ class Produk
         $statement->execute($data);
     }
 
-    public function ubah(){
+    public function ubah($data)
+    {
+        $koneksi = getConection();
+        $sql = "UPDATE produk SET kode=?, nama=?, harga_beli=?, harga_jual=?, stok=?, min_stok=?, jenis_produk_id=? WHERE id=?";
+        $ps = $koneksi->prepare($sql);
+        $ps->execute($data);
+    }
 
+    public function hapus($id)
+    {
+        $koneksi = getConection();
+        $sql = "DELETE FROM produk WHERE id=?";
+        $ps = $koneksi->prepare($sql);
+        $ps->execute([$id]);
     }
 }

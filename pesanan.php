@@ -63,7 +63,7 @@ $jenisProduk = $produk->pesanan();
                             <td>
                             <form action="pesanan_controller.php" method="post">
                                 <a href="index.php?url=pesanan_detail&id=<?=$row['id'] ?>" class="btn btn-info btn-sm">Detail</a>
-                                <a href="" class="btn btn-warning btn-sm">Ubah</a>
+                                <a href="index.php?url=pesanan_form&id=<?= $row['id'] ?>" class="btn btn-warning btn-sm">Ubah</a>
                                 <a href="" class="btn btn-danger btn-sm">Hapus</a>
                                 <input type="hidden" name="idx" value="<?= $row['id'] ?>">
                             </form>
